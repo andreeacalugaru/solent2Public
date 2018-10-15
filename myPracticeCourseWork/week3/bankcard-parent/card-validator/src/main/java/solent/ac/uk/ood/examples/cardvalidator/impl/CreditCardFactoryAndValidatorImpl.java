@@ -6,6 +6,9 @@
 package solent.ac.uk.ood.examples.cardvalidator.impl;
 
 import solent.ac.uk.ood.examples.cardcheck.CalculateLunnDigit;
+import solent.ac.uk.ood.examples.cardcheck.CardCompany;
+import solent.ac.uk.ood.examples.cardcheck.CardValidationResult;
+import solent.ac.uk.ood.examples.cardcheck.RegexCardValidator;
 import solent.ac.uk.ood.examples.cardvalidator.model.CardOrganisation;
 import solent.ac.uk.ood.examples.cardvalidator.model.CreditCard;
 import solent.ac.uk.ood.examples.cardvalidator.model.CreditCardFactoryAndValidator;
@@ -65,13 +68,38 @@ public class CreditCardFactoryAndValidatorImpl implements CreditCardFactoryAndVa
     @Override
     public CardOrganisation getCardOrganisation(CreditCard card) {
         //TODO
-        throw new UnsupportedOperationException("Not supported yet.");
+        String cardNumber = card.getCardnumber();
+
+        CardValidationResult result = RegexCardValidator.isValid(cardNumber);
+
+        CardCompany cardType = result.getCardType(); //,CardCompany.VISA
+
+        if (cardType.equals(CardCompany.AMEX)) {
+            return CardOrganisation.AMEX;
+        } else if (cardType.equals(CardCompany.VISA)) {
+            return CardOrganisation.VISA;
+        } else if (cardType.equals(CardCompany.DINERS)) {
+            return CardOrganisation.DINERS;
+        } else if (cardType.equals(CardCompany.DISCOVER)) {
+            return CardOrganisation.DISCOVER;
+        } else if (cardType.equals(CardCompany.JCB)) {
+            return CardOrganisation.JCB;
+        } else if (cardType.equals(CardCompany.MASTERCARD)) {
+            return CardOrganisation.MASTERCARD;
+        } else {
+            throw new IllegalArgumentException("unknown card type: " + cardType);
+        }
+        
     }
 
     @Override
     public boolean cardNumberLunnIsValid(CreditCard card) {
-        //TODO
-        throw new UnsupportedOperationException("Not supported yet.");
+
+        String cardNumber = card.getCardnumber();
+
+        CardValidationResult result = RegexCardValidator.isValid(cardNumber);
+        return result.isValid();
+
     }
 
 }

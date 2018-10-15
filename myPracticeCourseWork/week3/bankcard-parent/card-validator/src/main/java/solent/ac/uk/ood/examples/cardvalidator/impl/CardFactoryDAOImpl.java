@@ -10,6 +10,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import solent.ac.uk.ood.examples.cardvalidator.cvv.impl.TrivialCvvAlgorythimStrategy;
+import solent.ac.uk.ood.examples.cardvalidator.cvv.impl.MasterCardTsbBankCvvAlgorythimStrategy;
+import solent.ac.uk.ood.examples.cardvalidator.cvv.impl.VisaBankOfIrelandUKCvvAlgorythimStrategy;
+import solent.ac.uk.ood.examples.cardvalidator.cvv.impl.VisaNatWestCvvAlgorythimStrategy;
 import solent.ac.uk.ood.examples.cardvalidator.model.CardFactoryDAO;
 import solent.ac.uk.ood.examples.cardvalidator.model.CreditCardFactoryAndValidator;
 
@@ -26,19 +29,19 @@ public class CardFactoryDAOImpl implements CardFactoryDAO {
         // you need to use the actual algorythims you created - one for each bank
         String iin = SupportedCardIssuerIdentificationNumbers.VISA_NAT_WEST;
         CreditCardFactoryAndValidator ccfv = new CreditCardFactoryAndValidatorImpl();
-        ccfv.setCvvAlgorythim(new TrivialCvvAlgorythimStrategy());
+        ccfv.setCvvAlgorythim(new VisaNatWestCvvAlgorythimStrategy());
         ccfv.setIssuerIdentificationNumber(iin);
         cardFactoryMap.put(iin, ccfv);
         
         iin=SupportedCardIssuerIdentificationNumbers.VISA_BANK_OF_IRELAND_UK;
         ccfv = new CreditCardFactoryAndValidatorImpl();
-        ccfv.setCvvAlgorythim(new TrivialCvvAlgorythimStrategy());
+        ccfv.setCvvAlgorythim(new VisaBankOfIrelandUKCvvAlgorythimStrategy());
         ccfv.setIssuerIdentificationNumber(iin);
         cardFactoryMap.put(iin, ccfv);
         
         iin = SupportedCardIssuerIdentificationNumbers.MASTERCARD_TSB_BANK;
         ccfv = new CreditCardFactoryAndValidatorImpl();
-        ccfv.setCvvAlgorythim(new TrivialCvvAlgorythimStrategy());
+        ccfv.setCvvAlgorythim(new MasterCardTsbBankCvvAlgorythimStrategy());
         ccfv.setIssuerIdentificationNumber(iin);
         cardFactoryMap.put(iin, ccfv);
         

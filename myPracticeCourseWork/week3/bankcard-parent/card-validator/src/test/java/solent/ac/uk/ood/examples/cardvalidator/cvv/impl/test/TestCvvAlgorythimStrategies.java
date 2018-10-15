@@ -8,6 +8,9 @@ package solent.ac.uk.ood.examples.cardvalidator.cvv.impl.test;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import solent.ac.uk.ood.examples.cardvalidator.cvv.impl.TrivialCvvAlgorythimStrategy;
+import solent.ac.uk.ood.examples.cardvalidator.cvv.impl.MasterCardTsbBankCvvAlgorythimStrategy;
+import solent.ac.uk.ood.examples.cardvalidator.cvv.impl.VisaBankOfIrelandUKCvvAlgorythimStrategy;
+import solent.ac.uk.ood.examples.cardvalidator.cvv.impl.VisaNatWestCvvAlgorythimStrategy;
 import solent.ac.uk.ood.examples.cardvalidator.model.CreditCard;
 import solent.ac.uk.ood.examples.cardvalidator.model.CvvAlgorythimStrategy;
 
@@ -30,6 +33,52 @@ public class TestCvvAlgorythimStrategies {
         card.setName("Fred Bloggs");
         
         CvvAlgorythimStrategy cvvStrategy = new TrivialCvvAlgorythimStrategy();
+        CreditCard cvvCard =  cvvStrategy.addCvv(card);
+        assertTrue(cvvStrategy.checkCvv(card));
+
+    }
+    
+     @Test
+    public void testVisaNatWestCvvAlgorythimStrategy() {
+
+        CreditCard card = new CreditCard();
+        card.setCardnumber(VALID_MASTERCARD_1);
+        card.setEndDate("0120");
+        card.setIssueNumber("01");
+        card.setName("Fred Bloggs");
+        
+        CvvAlgorythimStrategy cvvStrategy = new VisaNatWestCvvAlgorythimStrategy();
+        CreditCard cvvCard =  cvvStrategy.addCvv(card);
+        assertTrue(cvvStrategy.checkCvv(card));
+
+    }
+
+    
+    @Test
+    public void testMasterCardTsbBankCvvAlgorythimStrategy() {
+
+        CreditCard card = new CreditCard();
+        card.setCardnumber(VALID_MASTERCARD_1);
+        card.setEndDate("0120");
+        card.setIssueNumber("01");
+        card.setName("Fred Bloggs");
+        
+        CvvAlgorythimStrategy cvvStrategy = new MasterCardTsbBankCvvAlgorythimStrategy();
+        CreditCard cvvCard =  cvvStrategy.addCvv(card);
+        assertTrue(cvvStrategy.checkCvv(card));
+
+    }
+
+      @Test
+    public void testVisaBankOfIrelandUKCvvAlgorythimStrategy() {
+
+        CreditCard card = new CreditCard();
+        card.setCardnumber(VALID_MASTERCARD_1);
+        card.setEndDate("0120");
+        card.setIssueNumber("01");
+        card.setName("Fred Bloggs");
+        
+        CvvAlgorythimStrategy cvvStrategy = new VisaBankOfIrelandUKCvvAlgorythimStrategy();
         CreditCard cvvCard =  cvvStrategy.addCvv(card);
         assertTrue(cvvStrategy.checkCvv(card));
 
