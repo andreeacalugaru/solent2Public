@@ -37,5 +37,4 @@ public class LoggingMessagesTest {
     public void testTransactionLog() {
         TRANSACTIONLOG.info("door opened");
     }
-   
 }
