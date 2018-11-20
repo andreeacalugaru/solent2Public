@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<accountModelLists>
+    <latestAccountId>5</latestAccountId>
+    <accountList>
+        <account>
+            <balance>10.0</balance>
+            <individualAccountIdentifier>00000004</individualAccountIdentifier>
+            <issuerIdentificationNumber>513388</issuerIdentificationNumber>
+            <name>Bob</name>
+        </account>
+        <account>
+            <balance>100.0</balance>
+            <individualAccountIdentifier>00000005</individualAccountIdentifier>
+            <issuerIdentificationNumber>513388</issuerIdentificationNumber>
+            <name>Alice</name>
+        </account>
+    </accountList>
+</accountModelLists>
