@@ -1,5 +1,5 @@
 
-# Exercise 1 factoryAndFacade
+# Exercise 1 Introduction to Factories And Facades
 
 In this exercise you will look at Java Collections and Generics, complete a simple factory method and implement and create tests for a simple facade interface. 
 You will then look at how to generate skeleton code from UML class diagrams in Netbeans.
@@ -7,9 +7,9 @@ You will then look at how to generate skeleton code from UML class diagrams in N
 ### 1. Setup
    Import the [factoryandfacade](../factoryandfacade/factoryandfacade) maven project into your workspace.
 
-### 2. Look at the ExampleCollectionsTest.java file.
+### 2. Look at Lists and Generics in ExampleCollectionsTest.java file.
 
-This ExampleCollectionsTest.java file contains a very brief introduction to java Generics and Java collections. 
+The [ExampleCollectionsTest.java](../factoryandfacade/factoryandfacade/src/test/java/org/solent/com504/factoryandfacade/test/ExampleCollectionsTest.java) file contains a very brief introduction to java Generics and Java collections. 
 
 Run the class in the IDE by right clicking on the class and selecting 'Test File'.
 
@@ -30,7 +30,11 @@ The example class illustrates how the ArrayList is an implementation of the List
 
 You can use raw Lists to store any java object.
  
-Generics can be added to a list declaration (e.g. List<Animal>) to tell the compiler that you will only ever put Animal classes into the list. 
+Generics can be added to a List declaration e.g. 
+```
+List<Animal>
+```
+to tell the compiler that you will only ever put Animal classes into the list. 
 The compiler checks all usages of the list and casts the retrieved objects automatically. 
 
 Note that Generics are implemented using 'Type Erasure' which means that only the compiler knows about and checks the generic values. 
@@ -38,6 +42,11 @@ The compiled byte code looses all of this information and simply has the list of
 This preserves backwards compatibility to java versions before 1.5 when generics were introduced.
 
 ### 3. Now look at the rest of the example code in the factoryandfacade project
+
+The image of the class diagram for this project is in the project [UMLfactoryandfacade](../factoryandfacade/UMLfactoryandfacade/) 
+
+have a look at the class diagram before looking at the code.
+
 If you do a maven build of the project you will see that the tests in FarmFacadeTest.java fail.
 This is because you haven't implemented the FarmFacade interface.
 You now need to complete the missing code to complete the project.
@@ -54,13 +63,15 @@ d) You will need to add additional tests to FarmFacadeTest.java so that you are 
 This exercise will show you how to create a UML class diagram in Netbeans and generate skeleton code from it which you can import into your model.
 
 ### 1. Import the easyUML plugin into netbeans
-To create UML diagrams in Netbeans we need to install the easyUML Plugin.
+
+To create UML diagrams in Netbeans we need to install the [easyUML Plugin](http://plugins.netbeans.org/plugin/55435/easyuml).
+(There is more documentation if you google on line and a also a youtube tutorial [EasyUML video](https://www.youtube.com/watch?v=QME_S7gPnVI) 
 
 Select Tools>Plugins> and select Available Plugins tab.
 
 Search for easyUML and select and press the install button. You will need to restart the IDE.
 
-![alt text](../master/images/easyUMLPlugin.png "Figure easyUMLPlugin.png")
+![alt text](../factoryandfacade/images/easyUMLPlugin.png "Figure easyUMLPlugin.png")
 
 While you are there, you might also want to install the following plugins; 
 * Markdown support - makes it easier to edit github markdown
@@ -138,12 +149,18 @@ Use cases for Dependency Injection include;
 The Spring Framework is one of the most widely used dependency injection frameworks and we will be using Spring in our examples. 
 
 Spring documentation is available here 
-https://docs.spring.io/spring/docs/3.2.x/spring-framework-reference/html/
+https://docs.spring.io/spring/docs/5.1.9.RELEASE/spring-framework-reference/
 
 Spring is very powerful and can become very bound into your project if you use all of it's features. 
 We will be limiting our use to basic dependency injection simply to help us construct our tests.
 
+# Exercise 4 A more advanced example factoryandfacade2
 
+Import the factoryandfacade2 maven project into your workspace and run the tests.
+
+This has two factory implementations; one based on simple java new calls and one based on spring.
+
+For both of these factory implementations, Add an additional animal to the object factory and modify the tests in factoryandfacade2
 
 
 
