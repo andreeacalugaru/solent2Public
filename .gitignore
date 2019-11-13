@@ -40,5 +40,11 @@ nb-configuration.xml
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
 /week8/bankcard-parent/card-web/accounts-data.xml
+>>>>>>> upstream/master
+=======
+# Log files
+derby.log
+
 >>>>>>> upstream/master
