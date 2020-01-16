@@ -4,6 +4,7 @@
     Author     : 3calua07
 --%>
 
+
 <%@page import="org.solent.com504.project.impl.web.WebObjectFactory"%>
 <%@page import="org.solent.com504.project.model.service.ServiceFacade"%>
 <%@page import="java.util.List"%>
@@ -43,6 +44,7 @@
         errorMessage = "ERROR: page called for unknown action";
     }
 %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -59,7 +61,9 @@
         <input type="text" id="hour" placeholder="Please enter the time" /><br>
         <input type="text" id="Month" placeholder="Please enter the month" /><br>
         <input type="text" id="Year" placeholder="Please enter the year" /><br>
-        <input type="text" id="descripton" placeholder="Please enter the minutes" /><br>  
+        <input type="text" id="descripton" placeholder="Please enter the minutes" /><br> 
+        <input type="button" id="send" value="Add"/>
+        <input type="button" id="delete" value="Delete"/>
     </body>
     <div>
          <p> click on <a href="../projectfacadeweb/listAppointments.jsp">list all Appointments</a></p>

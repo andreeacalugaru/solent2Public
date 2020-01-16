@@ -52,6 +52,7 @@
             <input type="text" id="role" placeholder="Role"/><br>
             <input type="text" id="address" placeholder="Address"/><br>
             <input type="button" id="add" value="Add"/>
+             <input type="button" id="delete" value="Delete"/>
             
             
         </div>
